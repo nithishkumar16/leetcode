@@ -1,0 +1,33 @@
+# 1. Recyclable and Low Fat Products
+select product_id 
+from Products
+where low_fats = 'Y' and recyclable = 'Y'  ;
+
+# 2. Find Customer Referee
+select name 
+from customer 
+where referee_id <> 2 or referee_id is null ; 
+
+# 3. Big countries - time - 0(n) , space - o(1)
+select name , population , area 
+from world 
+where area       >=  3000000 or 
+      population >= 25000000 ;
+
+#4. Article Views I
+select distinct author_id
+from views 
+where author_id = viewer_id 
+order by author_id asc; 
+##if we expect lots of data then 
+select author_id
+from views 
+where author_id = viewer_id 
+group by author_id
+order by author_id asc; 
+
+#5. Invalid Tweets
+select tweet_id 
+from tweets
+where length(content) > 15 ;
+
